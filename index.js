@@ -5,12 +5,12 @@
 
 var lambda = require('core.lambda'),
     curry = lambda.curry,
-    constant = lambda.constant,
-    Option = require('fantasy-options').Option;
+    constant = lambda.constant/*,
+    Option = require('fantasy-options').Option*/;
 
-var opt = function (val) {
-    return Option.from(val);
-};
+var opt = curry(2, function (ctx, val) {
+    return ctx.from(val);
+});
 
 var operationWrap = curry(2, function (operation, valueO) {
     return extract(this, operation, valueO);
@@ -18,13 +18,13 @@ var operationWrap = curry(2, function (operation, valueO) {
 
 var extract = curry(3, function (ctx, operation, valueO) {
     return ctx.fold(function (meV) {
-        return valueO.fold(operation(meV), constant(Option.None));
-    }, constant(Option.None));
+        return valueO.fold(operation(meV), constant(ctx.None));
+    }, constant(ctx.None));
 });
 
-var conditionResult = function (cond, val) {
-    return cond ? Option.of(val) : Option.None;
-};
+var conditionResult = curry(3, function (ctx, cond, val) {
+    return cond ? ctx.of(val) : ctx.None;
+});
 
 module.exports = {
     opt: opt,
