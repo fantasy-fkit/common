@@ -12,8 +12,8 @@ var opt = function (val) {
     return Option.from(val);
 };
 
-var operationWrap = curry(2, function (operation, valueO) {
-    return extract(this, operation, valueO);
+var operationWrap = curry(3, function (ctx, operation, valueO) {
+    return extract(ctx, operation, valueO);
 });
 
 var extract = curry(3, function (ctx, operation, valueO) {
