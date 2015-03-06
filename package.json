@@ -1,0 +1,21 @@
+{
+  "name": "common",
+  "description": "Common functions for fantasy-fkit",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fantasy-fkit/common.git"
+  },
+  "keywords": [
+    "common",
+    "fantasy",
+    "fkit"
+  ],
+  "dependencies": {
+    "core.lambda": "~1.0.0",
+    "fantasy-options": "git://github.com/fantasy-fkit/fantasy-options.git#v0.1.2"
+  },
+  "author": "Klim Malgin",
+  "license": "MIT",
+  "main": "index.js",
+  "version": "0.0.1"
+}
